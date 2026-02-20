@@ -1,26 +1,32 @@
-# Robots.txt for Lumora Webworks
-# Optimized for maximum crawl efficiency and security
-
 User-agent: *
 Allow: /
-
-# Block access to system files
-Disallow: /private/
-Disallow: /tmp/
+# Disallow system directories to save crawl budget
 Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /junk/
 
-# Explicitly Allow Assets for Mobile-Friendly Rendering (Critical for Google)
-Allow: /*.css$
-Allow: /*.js$
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.svg$
-Allow: /*.webp$
-Allow: /*.gif$
+# Prioritize Google Image Bot for Portfolio visibility
+User-agent: Googlebot-Image
+Allow: /
+Allow: /*.webp
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
 
-# Host location (optional but good practice)
-Host: https://lumora-ten.vercel.app
+# Block aggressive SEO bots to save bandwidth and server load
+User-agent: AhrefsBot
+Disallow: /
 
-# Sitemap Location
-Sitemap: https://lumora-ten.vercel.app/sitemap.xml
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Standard Sitemap Declaration
+Sitemap: https://ebert-nakula.vercel.app/sitemap.xml
